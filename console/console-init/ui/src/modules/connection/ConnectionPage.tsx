@@ -130,7 +130,10 @@ export default function ConnectionPage() {
   };
 
   return (
-    <PageSection variant={PageSectionVariants.light}>
+    <PageSection
+      variant={PageSectionVariants.light}
+      id="connections-pagesection"
+    >
       <Grid>
         <GridItem span={6}>
           <ConnectionToolbarContainer

@@ -84,6 +84,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
     <>
       <ToolbarItem spacer={{ md: "spacerNone" }} data-codemods="true">
         <ToolbarFilter
+          id="connect-toggle-delete-hostname-filter"
           chips={selectedHostnames.map(filter => filter.value)}
           deleteChip={onDelete}
           categoryName="Hostname"
@@ -91,6 +92,8 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
           {filterSelected && filterSelected.toLowerCase() === "hostname" && (
             <InputGroup>
               <TypeAheadSelect
+                id="connect-toggle-select-hostname-typeahead"
+                aria-label="Select hostname"
                 typeAheadAriaLabel={"Select hostname"}
                 aria-LabelledBy={"typeahead-select-id"}
                 onSelect={onHostnameSelect}
@@ -102,9 +105,9 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
                 setInput={setHostNameInput}
               />
               <Button
-                id="cl-filter-search-btn"
+                id="connect-toggle-search-hostame-button"
                 variant={ButtonVariant.control}
-                aria-label="search button for search hostname"
+                aria-label="search button for searching hostname"
                 onClick={onSearch}
               >
                 <SearchIcon />
@@ -115,6 +118,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
       </ToolbarItem>
       <ToolbarItem spacer={{ md: "spacerNone" }} data-codemods="true">
         <ToolbarFilter
+          id="connect-toggle-delete-container-filter"
           chips={selectedContainers.map(filter => filter.value)}
           deleteChip={onDelete}
           categoryName="Container"
@@ -122,6 +126,8 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
           {filterSelected && filterSelected.toLowerCase() === "container" && (
             <InputGroup>
               <TypeAheadSelect
+                id="connect-toggle-select-container-typeahead"
+                aria-label="Select container"
                 typeAheadAriaLabel={"Select container"}
                 aria-LabelledBy={"typeahead-select-id"}
                 onSelect={onContainerSelect}
@@ -133,9 +139,9 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
                 setInput={setHostContainerInput}
               />
               <Button
-                id="cl-filter-search"
+                id="connect-toggle-search-address-button"
                 variant={ButtonVariant.control}
-                aria-label="search button for search address"
+                aria-label="search button for searching address"
                 onClick={onSearch}
               >
                 <SearchIcon />
@@ -151,7 +157,8 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
     <ToolbarGroup variant="filter-group" data-codemods="true">
       <ToolbarFilter categoryName="Filter">
         <DropdownWithToggle
-          id="cl-filter-dropdown"
+          id="connect-toggle-filter-type-dropdown"
+          aria-label="select filter from dropdown"
           toggleId={"cl-filter-dropdown"}
           dropdownItemIdPrefix="cl-filter-dropdown-item"
           position={DropdownPosition.left}
@@ -176,7 +183,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
         <>
           <FilterIcon />
           {checkIsFilterApplied() && (
-            <Badge key={1} isRead>
+            <Badge key={1} isRead id="connect-toggle-filter-applied-badge">
               {totalRecords}
             </Badge>
           )}

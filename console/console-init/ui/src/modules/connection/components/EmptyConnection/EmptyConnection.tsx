@@ -17,10 +17,10 @@ export const EmptyConnection = () => {
   return (
     <EmptyState variant={EmptyStateVariant.full}>
       <EmptyStateIcon icon={GlobeRouteIcon} />
-      <Title headingLevel="h2" id="empty-connection-text" size="lg">
+      <Title headingLevel="h2" id="empty-connect-title" size="lg">
         No connections
       </Title>
-      <EmptyStateBody id="empty-connection-body">
+      <EmptyStateBody id="empty-connect-body">
         You currently don't have any connections
       </EmptyStateBody>
     </EmptyState>

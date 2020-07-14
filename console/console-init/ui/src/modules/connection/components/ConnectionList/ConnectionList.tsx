@@ -88,7 +88,11 @@ export const ConnectionList: React.FunctionComponent<IConnectionListProps> = ({
       selected: selected,
       cells: [
         {
-          title: <Link to={`connections/${name}`}>{hostname}</Link>
+          title: (
+            <Link id="connect-list-hostname-title" to={`connections/${name}`}>
+              {hostname}
+            </Link>
+          )
         },
         containerId,
         {
@@ -199,7 +203,7 @@ export const ConnectionList: React.FunctionComponent<IConnectionListProps> = ({
   };
 
   return (
-    <div className={css(StyleForTable.scroll_overflow)}>
+    <div id="connect-list-table" className={css(StyleForTable.scroll_overflow)}>
       <Table
         variant={TableVariant.compact}
         cells={tableColumns}
@@ -210,7 +214,7 @@ export const ConnectionList: React.FunctionComponent<IConnectionListProps> = ({
         onSort={onSort}
         onSelect={onSelect}
       >
-        <TableHeader id="connectionlist-table-header" />
+        <TableHeader id="connect-list-table-header" />
         <TableBody />
       </Table>
     </div>
