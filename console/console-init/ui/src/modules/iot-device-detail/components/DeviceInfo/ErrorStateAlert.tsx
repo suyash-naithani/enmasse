@@ -57,13 +57,19 @@ export const ErrorStateAlert: React.FC<IErrorStateAlertProps> = ({
       return (
         <Flex>
           <FlexItem>
-            <AlertActionLink onClick={addGateways}>
+            <AlertActionLink
+              id="err-state-add-gateways-actionlink"
+              onClick={addGateways}
+            >
               Add credentials
             </AlertActionLink>
           </FlexItem>
           <FlexItem>or</FlexItem>
           <FlexItem>
-            <AlertActionLink onClick={addCredentials}>
+            <AlertActionLink
+              id="err-state-add-gcredentials-actionlink"
+              onClick={addCredentials}
+            >
               Add credentials
             </AlertActionLink>
           </FlexItem>
@@ -73,13 +79,19 @@ export const ErrorStateAlert: React.FC<IErrorStateAlertProps> = ({
       return (
         <Flex>
           <FlexItem>
-            <AlertActionLink onClick={deleteGateways}>
+            <AlertActionLink
+              id="err-state-delete-gateways-actionlink"
+              onClick={deleteGateways}
+            >
               Delete gateways
             </AlertActionLink>
           </FlexItem>
           <FlexItem>or</FlexItem>
           <FlexItem>
-            <AlertActionLink onClick={deleteCredentials}>
+            <AlertActionLink
+              id="err-state-delete-credentials-actionlink"
+              onClick={deleteCredentials}
+            >
               Delete credentials
             </AlertActionLink>
           </FlexItem>

@@ -36,21 +36,21 @@ export const ExtensionsView: React.FC<IExtensionsViewProps> = ({
   const columns = [
     {
       title: (
-        <Title headingLevel="h1" size="md">
+        <Title headingLevel="h1" size="md" id="ext-view-parameter-title">
           Parameter
         </Title>
       )
     },
     {
       title: (
-        <Title headingLevel="h1" size="md">
+        <Title headingLevel="h1" size="md" id="ext-view-type-title">
           Type
         </Title>
       )
     },
     {
       title: (
-        <Title headingLevel="h1" size="md">
+        <Title headingLevel="h1" size="md" id="ext-view-value-title">
           Value
         </Title>
       )
@@ -82,7 +82,7 @@ export const ExtensionsView: React.FC<IExtensionsViewProps> = ({
             </Title>
           </GridItem>
           <Table aria-label="extensions view table" cells={columns} rows={rows}>
-            <TableHeader />
+            <TableHeader id="ext-view-table" />
             <TableBody />
           </Table>
         </Grid>

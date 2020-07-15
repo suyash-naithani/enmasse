@@ -69,6 +69,7 @@ const SecretRow: React.FC<ISecretRowProps> = ({
     if (key === "pwd-hash") {
       return (
         <Button
+          id="secret-view-change-pass-button"
           variant="link"
           icon={<EditAltIcon />}
           className={classNames([
@@ -81,7 +82,9 @@ const SecretRow: React.FC<ISecretRowProps> = ({
         </Button>
       );
     } else if (key === "key") {
-      return <PasswordLabel id="sv-key-password-lebel" value={value} />;
+      return (
+        <PasswordLabel id="secret-view-key-password-label" value={value} />
+      );
     }
     return value;
   };

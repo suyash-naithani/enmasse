@@ -109,7 +109,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
   return (
     <>
       <Tooltip
-        id="ci-help-tooltip"
+        id="config-info-help-tooltip"
         position={TooltipPosition.bottom}
         enableFlip={false}
         content={
@@ -120,7 +120,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
         }
       >
         <Button
-          id="ci-help-icon-button"
+          id="config-info-help-icon-button"
           icon={<ExclamationCircleIcon />}
           variant={ButtonVariant.link}
         >
@@ -137,7 +137,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
                     Adapters
                   </Title>
                   <br />
-                  <AdapterListContainer id="ci-adapter-container" />
+                  <AdapterListContainer id="config-info-adapter-container" />
                 </CardBody>
               </Card>
             </GridItem>
@@ -147,7 +147,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
                   <Card>
                     <CardBody>
                       <DropdownWithToggle
-                        id="ci-credential-type-dropdown"
+                        id="config-info-credential-type-dropdown"
                         toggleId={"ci-credential-type-dropdown"}
                         position={DropdownPosition.left}
                         onSelectItem={onSelectCredentialType}
@@ -163,7 +163,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
                       />
                       {filterOptions?.length > 0 && (
                         <DropdownWithToggle
-                          id="ci-filter-dropdown"
+                          id="config-info-filter-dropdown"
                           toggleId={"ci-filter-dropdown"}
                           position={DropdownPosition.left}
                           onSelectItem={onSelectFilterItem}
@@ -178,7 +178,7 @@ export const ConfigurationInfo: React.FC<IConfigurationInfoProps> = ({
                 </GridItem>
               </Grid>
               <CredentialsView
-                id="ci-credentials-view"
+                id="config-info-credentials-view"
                 credentials={credentials}
               />
             </GridItem>

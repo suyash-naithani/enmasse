@@ -110,7 +110,7 @@ export const DeviceInfo: React.FC<IDeviceInfoProps> = ({
           <SplitItem isFilled />
           <SplitItem>
             <SwitchWithToggle
-              id={"device-info-view-in-json-switch"}
+              id={"device-info-view-json-switch"}
               label={"View in JSON"}
               onChange={onToggle}
             />
@@ -127,7 +127,11 @@ export const DeviceInfo: React.FC<IDeviceInfoProps> = ({
             <GridItem span={5}>
               <Card>
                 <CardTitle>
-                  <Title id="di-header-title" headingLevel="h1" size="2xl">
+                  <Title
+                    id="device-info-gateways-title"
+                    headingLevel="h1"
+                    size="2xl"
+                  >
                     Via gateways
                   </Title>
                 </CardTitle>
@@ -138,6 +142,7 @@ export const DeviceInfo: React.FC<IDeviceInfoProps> = ({
                         return (
                           <GridItem span={2} key={deviceId}>
                             <Link
+                              id="device-info-id-link"
                               to={`/iot-projects/${namespace}/${projectname}/devices/${deviceId}/device-info`}
                             >
                               {deviceId}
@@ -146,7 +151,10 @@ export const DeviceInfo: React.FC<IDeviceInfoProps> = ({
                         );
                       })}
                     {!(deviceList?.length > 0) && (
-                      <Text component={TextVariants.p}>
+                      <Text
+                        component={TextVariants.p}
+                        id="device-info-no-gateways-text"
+                      >
                         There are no gateways for this device. This device is
                         connected to the cloud directly.
                       </Text>
@@ -165,7 +173,11 @@ export const DeviceInfo: React.FC<IDeviceInfoProps> = ({
             <GridItem span={7}>
               <Card id={id}>
                 <CardTitle>
-                  <Title headingLevel="h1" size="2xl">
+                  <Title
+                    headingLevel="h1"
+                    size="2xl"
+                    id="device-info-metadata-title"
+                  >
                     Device metadata
                   </Title>
                 </CardTitle>
