@@ -84,7 +84,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
     <>
       <ToolbarItem spacer={{ md: "spacerNone" }} data-codemods="true">
         <ToolbarFilter
-          id="connect-toggle-delete-hostname-filter"
+          id="connections-togglegrp-delete-hostname-filter"
           chips={selectedHostnames.map(filter => filter.value)}
           deleteChip={onDelete}
           categoryName="Hostname"
@@ -92,7 +92,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
           {filterSelected && filterSelected.toLowerCase() === "hostname" && (
             <InputGroup>
               <TypeAheadSelect
-                id="connect-toggle-select-hostname-typeahead"
+                id="connections-togglegrp-select-hostname-typeahead"
                 aria-label="Select hostname"
                 typeAheadAriaLabel={"Select hostname"}
                 aria-LabelledBy={"typeahead-select-id"}
@@ -105,7 +105,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
                 setInput={setHostNameInput}
               />
               <Button
-                id="connect-toggle-search-hostame-button"
+                id="connections-togglegrp-search-hostame-button"
                 variant={ButtonVariant.control}
                 aria-label="search button for searching hostname"
                 onClick={onSearch}
@@ -118,7 +118,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
       </ToolbarItem>
       <ToolbarItem spacer={{ md: "spacerNone" }} data-codemods="true">
         <ToolbarFilter
-          id="connect-toggle-delete-container-filter"
+          id="connections-togglegrp-delete-container-filter"
           chips={selectedContainers.map(filter => filter.value)}
           deleteChip={onDelete}
           categoryName="Container"
@@ -126,7 +126,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
           {filterSelected && filterSelected.toLowerCase() === "container" && (
             <InputGroup>
               <TypeAheadSelect
-                id="connect-toggle-select-container-typeahead"
+                id="connections-togglegrp-select-container-typeahead"
                 aria-label="Select container"
                 typeAheadAriaLabel={"Select container"}
                 aria-LabelledBy={"typeahead-select-id"}
@@ -139,7 +139,7 @@ const ConnectionsToggleGroup: React.FunctionComponent<IConnectionsToggleGroupPro
                 setInput={setHostContainerInput}
               />
               <Button
-                id="connect-toggle-search-address-button"
+                id="connections-togglegrp-search-address-button"
                 variant={ButtonVariant.control}
                 aria-label="search button for searching address"
                 onClick={onSearch}

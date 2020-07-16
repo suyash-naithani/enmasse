@@ -70,7 +70,8 @@ const ConnectionsToolbar: React.FunctionComponent<IConnectionsToolbarProps &
   ];
   const dropdownItems = [
     <DropdownItem
-      id="connect-toolbar-filter-close-dropdownitem"
+      id="connections-toolbar-filter-close-dropdownitem"
+      aria-label="Close selected dropdown item"
       key="close-all"
       value="closeAll"
       component="button"
@@ -121,8 +122,8 @@ const ConnectionsToolbar: React.FunctionComponent<IConnectionsToolbarProps &
       </ToolbarItem>
       <ToolbarItem data-codemods="true">
         <DropdownWithKebabToggle
-          id="connect-toolbar-select-kebab-dropdown"
-          toggleId="cl-filter-overflow-kebab"
+          id="connections-toolbar-select-kebab-dropdown"
+          toggleId="connections-toolbar-select-kebab-dropdown"
           onSelect={onKebabSelect}
           dropdownItems={dropdownItems}
           isPlain
@@ -133,7 +134,7 @@ const ConnectionsToolbar: React.FunctionComponent<IConnectionsToolbarProps &
 
   return (
     <Toolbar
-      id="connect-filter-toolbar"
+      id="connections-filter-toolbar"
       className="pf-m-toggle-group-container"
       collapseListedFiltersBreakpoint="xl"
       clearAllFilters={onClearAllFilters}
