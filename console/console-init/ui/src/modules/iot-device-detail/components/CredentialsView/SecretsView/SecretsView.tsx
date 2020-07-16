@@ -4,6 +4,7 @@
  */
 
 import React from "react";
+import _ from "lodash";
 import { Title, Grid, GridItem, Button } from "@patternfly/react-core";
 import { EditAltIcon } from "@patternfly/react-icons";
 import classNames from "classnames";
@@ -69,7 +70,7 @@ const SecretRow: React.FC<ISecretRowProps> = ({
     if (key === "pwd-hash") {
       return (
         <Button
-          id="secret-view-change-pass-button"
+          id="secrets-view-change-password-button"
           variant="link"
           icon={<EditAltIcon />}
           className={classNames([
@@ -83,29 +84,31 @@ const SecretRow: React.FC<ISecretRowProps> = ({
       );
     } else if (key === "key") {
       return (
-        <PasswordLabel id="secret-view-key-password-label" value={value} />
+        <PasswordLabel id="secrets-view-key-password-label" value={value} />
       );
     }
     return value;
   };
 
-  const secretsKeys = Object.keys(secret);
+  const secretsKeys = Object.keys(_.omit(secret, "id"));
   return (
     <>
-      {secretsKeys.map((key: string) => {
+      {secretsKeys?.map((key: string) => {
         const value = secret && (secret as any)[key];
         return (
           <>
-            <Grid key={"secrets-view-" + key}>
-              <GridItem span={3}>
-                <Title headingLevel="h1" size="md">
-                  {getLabelByKey(key)}
-                </Title>
-              </GridItem>
-              <GridItem span={9} className={css(styles.row_margin)}>
-                {renderGridItemValue(value, key)}
-              </GridItem>
-            </Grid>
+            {value && (
+              <Grid key={"secrets-view-" + key}>
+                <GridItem span={3}>
+                  <Title headingLevel="h1" size="md">
+                    {getLabelByKey(key)}
+                  </Title>
+                </GridItem>
+                <GridItem span={9} className={css(styles.row_margin)}>
+                  {renderGridItemValue(value, key)}
+                </GridItem>
+              </Grid>
+            )}
           </>
         );
       })}

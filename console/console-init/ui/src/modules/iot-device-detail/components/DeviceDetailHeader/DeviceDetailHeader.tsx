@@ -13,7 +13,9 @@ import {
   DropdownItem,
   DropdownPosition,
   DropdownSeparator,
-  Switch
+  Switch,
+  PageSection,
+  PageSectionVariants
 } from "@patternfly/react-core";
 import { StyleSheet, css } from "aphrodite";
 import { FormatDistance } from "use-patternfly";
@@ -137,7 +139,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
     if (!(credentials.length > 0) && viaGateway) {
       additionalKebabOptions.push(
         <DropdownItem
-          id="device-detail-edit-gateways-dropdown"
+          id="device-detail-edit-gateways-dropdownitem"
           key="edit-gateways"
           aria-label="edit gateways"
           onClick={onSelctEditGateways}
@@ -148,7 +150,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
     } else if (!viaGateway && credentials?.length > 0) {
       additionalKebabOptions.push(
         <DropdownItem
-          id="device-detail-edit-credentials-dropdown"
+          id="device-detail-edit-credentials-dropdownitem"
           key="edit-credentials"
           aria-label="edit credentials"
           onClick={onSelectEditCredentials}
@@ -164,7 +166,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
     ) {
       additionalKebabOptions.push(
         <DropdownItem
-          id="device-detail-change-connection-type-dropdown"
+          id="device-detail-change-connection-type-dropdownitem"
           key="change-connection-type"
           aria-label="change connection type"
           onClick={onSelectChangeConnectionType}
@@ -181,7 +183,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
     const dropdownItems: React.ReactNode[] = [
       ...additionalKebebOptions(),
       <DropdownItem
-        id="device-detail-edit-metadata-dropdown"
+        id="device-detail-edit-metadata-dropdownitem"
         key="edit-metadata"
         aria-label="edit metadata"
         onClick={onSelectEditMetadata}
@@ -189,7 +191,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
         Edit metadata
       </DropdownItem>,
       <DropdownItem
-        id="device-detail-edit-json-dropdown"
+        id="device-detail-edit-json-dropdownitem"
         key="edit-in-json"
         aria-label="edit device in json"
         onClick={onSelectEditDeviceInJson}
@@ -198,7 +200,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
       </DropdownItem>,
       <DropdownSeparator key="separator" />,
       <DropdownItem
-        id="device-detail-delete-dropdown"
+        id="device-detail-delete-dropdownitem"
         key="delete-device"
         aria-label="delete device"
         onClick={onDelete}
@@ -206,7 +208,7 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
         Delete Device
       </DropdownItem>,
       <DropdownItem
-        id="device-detail-clone-dropdown"
+        id="device-detail-clone-dropdownitem"
         key="clone-device"
         aria-label="clone"
         onClick={onClone}
@@ -226,22 +228,27 @@ const DeviceDetailHeader: React.FunctionComponent<IDeviceDetailHeaderProps> = ({
   };
 
   return (
-    <Split>
-      <DeviceDetailLayout />
-      <SplitItem isFilled />
-      <SplitItem className={css(styles.kebab_toggle_margin)}>
-        <Switch
-          id="device-detail-status-switch"
-          label="Enabled"
-          labelOff="Disabled"
-          onChange={onChange}
-          isChecked={deviceStatus}
-        />
-      </SplitItem>
-      <SplitItem className={css(styles.kebab_toggle_margin)}>
-        <KebabOptionsLayout />
-      </SplitItem>
-    </Split>
+    <PageSection
+      variant={PageSectionVariants.light}
+      className={css(styles.no_bottom_padding)}
+    >
+      <Split>
+        <DeviceDetailLayout />
+        <SplitItem isFilled />
+        <SplitItem className={css(styles.kebab_toggle_margin)}>
+          <Switch
+            id="device-detail-header-enable-switch"
+            label="Enabled"
+            labelOff="Disabled"
+            onChange={onChange}
+            isChecked={deviceStatus}
+          />
+        </SplitItem>
+        <SplitItem className={css(styles.kebab_toggle_margin)}>
+          <KebabOptionsLayout />
+        </SplitItem>
+      </Split>
+    </PageSection>
   );
 };
 

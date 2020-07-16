@@ -36,21 +36,21 @@ export const ExtensionsView: React.FC<IExtensionsViewProps> = ({
   const columns = [
     {
       title: (
-        <Title headingLevel="h1" size="md" id="ext-view-parameter-title">
+        <Title headingLevel="h1" size="md">
           Parameter
         </Title>
       )
     },
     {
       title: (
-        <Title headingLevel="h1" size="md" id="ext-view-type-title">
+        <Title headingLevel="h1" size="md">
           Type
         </Title>
       )
     },
     {
       title: (
-        <Title headingLevel="h1" size="md" id="ext-view-value-title">
+        <Title headingLevel="h1" size="md">
           Value
         </Title>
       )
@@ -59,7 +59,7 @@ export const ExtensionsView: React.FC<IExtensionsViewProps> = ({
 
   const extOptions = convertJsonToMetadataOptions(ext);
 
-  const rows = extOptions.map((ext: any) => {
+  const rows = extOptions?.map((ext: any) => {
     const { key, value, typeLabel } = ext || {};
     const cells = [
       { header: "parameter", title: key },
@@ -82,7 +82,7 @@ export const ExtensionsView: React.FC<IExtensionsViewProps> = ({
             </Title>
           </GridItem>
           <Table aria-label="extensions view table" cells={columns} rows={rows}>
-            <TableHeader id="ext-view-table" />
+            <TableHeader id="extensions-view-table" />
             <TableBody />
           </Table>
         </Grid>
